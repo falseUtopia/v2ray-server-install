@@ -112,7 +112,7 @@ public class AutoInstallProxy {
                 .distinct()
                 .toArray(File[]::new);
 
-        ZipUtil.zip(new File(outPath + "/代理安装.zip"), true, fileArr);
+        ZipUtil.zip(new File(outPath + "/v2ray-proxy-install.zip"), true, fileArr);
         FileUtil.del("com");
 
     }
