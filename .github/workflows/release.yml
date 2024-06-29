@@ -1,0 +1,35 @@
+name: v2ray-server-install
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - '*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Set up Java
+        uses: actions/setup-java@v4.2.1
+        with:
+          distribution: 'oracle'
+          java-version: '8'
+
+      - name: Run bat script
+        run: |
+          release.bat
+        shell: cmd
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: 代理安装.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
