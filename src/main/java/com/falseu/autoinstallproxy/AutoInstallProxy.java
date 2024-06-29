@@ -91,7 +91,7 @@ public class AutoInstallProxy {
             FileUtil.writeString(jsonObject.toStringPretty(), jsonFile, "UTF-8");
         }
 
-        String startCmd = "v2ray.exe run";
+        String startCmd = "%~dp0\\v2ray.exe run";
         FileUtil.writeString(startCmd, unZipFilePath + "/start.bat", "UTF-8");
 
     }
