@@ -1,12 +1,10 @@
 @echo off
-REM å£°æ˜Žé‡‡ç”¨UTF-8ç¼–ç 
-chcp 65001
 
-echo å¤„ç†ä¸­...
+echo ´¦ÀíÖÐ...
 
 set current_dir=%CD%
 cd src\main\java\com\falseu\autoinstallproxy
 javac.exe -cp "hutool-all-5.8.28.jar;." -encoding UTF-8 -d . AutoInstallProxy.java
 java -cp "hutool-all-5.8.28.jar;." com.falseu.autoinstallproxy.AutoInstallProxy release %current_dir%
-echo æŒ‰ä»»æ„é”®é€€å‡º
+echo °´ÈÎÒâ¼üÍË³ö
 pause>nul
