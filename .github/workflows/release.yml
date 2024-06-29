@@ -31,5 +31,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
+          token: ${{ secrets.RELEASE_TOKEN }}
           files: 代理安装.zip
       
