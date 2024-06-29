@@ -19,7 +19,7 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v4.2.1
         with:
-          distribution: 'oracle'
+          distribution: 'temurin'
           java-version: '8'
 
       - name: Run bat script
