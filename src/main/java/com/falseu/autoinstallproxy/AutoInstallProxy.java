@@ -36,10 +36,10 @@ public class AutoInstallProxy {
             url = args[1];
         }
 
-        String desktopPath = FileUtil.getUserHomePath() + "/Desktop";
+        String appInstallPath = "D:/";
         String fileName = "proxy-v2ray-windows-64-v5.13.0.zip";
-        String fullFileName = desktopPath + "/" + fileName;
-        String unZipFilePath = desktopPath + "/" + FileNameUtil.getPrefix(fullFileName);
+        String fullFileName = appInstallPath + "/" + fileName;
+        String unZipFilePath = appInstallPath + "/" + FileNameUtil.getPrefix(fullFileName);
 
         HttpUtil.downloadFile(url, FileUtil.file(fileName),
 
