@@ -32,7 +32,7 @@ public class AutoInstallProxy {
         // 解压
         // 替换json
         String url = "https://mirror.ghproxy.com/https://github.com/v2fly/v2ray-core/releases/download/v5.13.0/v2ray-windows-64.zip";
-        if (args.length == 1 && args[0].startWith("https://")){
+        if (args.length == 1 && args[0].startsWith("https://")){
             url = args[1];
         }
 
