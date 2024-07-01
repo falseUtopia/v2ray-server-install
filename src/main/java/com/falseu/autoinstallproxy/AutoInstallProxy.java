@@ -27,10 +27,15 @@ public class AutoInstallProxy {
         }
 
         String configJson = "{\"log\":{\"loglevel\":\"warning\"},\"inbounds\":[{\"port\":16823,\"protocol\":\"vmess\",\"settings\":{\"clients\":[{\"id\":\"c033ee75-1b3f-45a6-a473-8f28dbf4aa27\",\"alterId\":0}]}}],\"outbounds\":[{\"protocol\":\"freedom\",\"settings\":{}}]}";
+        
         // 下载zip
         // 解压
         // 替换json
         String url = "https://mirror.ghproxy.com/https://github.com/v2fly/v2ray-core/releases/download/v5.13.0/v2ray-windows-64.zip";
+        if (args.length == 1 && args[0].startWith("https://")){
+            url = args[1];
+        }
+
         String desktopPath = FileUtil.getUserHomePath() + "/Desktop";
         String fileName = "proxy-v2ray-windows-64-v5.13.0.zip";
         String fullFileName = desktopPath + "/" + fileName;
