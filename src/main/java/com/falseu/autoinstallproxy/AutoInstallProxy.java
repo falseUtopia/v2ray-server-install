@@ -95,7 +95,7 @@ public class AutoInstallProxy {
 
             String string = UUID.randomUUID().toString();
             // 可做成上报
-            System.out.printf("需要记下来 %s: %s%n", localhostStr, string);
+            System.out.printf("需要记下来 %s,%s%n", localhostStr, string);
             jsonArray.getJSONObject(0).set("id", string);
 
             FileUtil.writeString(jsonObject.toStringPretty(), jsonFile, "UTF-8");
