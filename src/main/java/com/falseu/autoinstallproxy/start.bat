@@ -1,8 +1,8 @@
 @echo off
 
-echo å¤„ç†ä¸­...
+echo ´¦ÀíÖÐ...
 set script_dir=%~dp0
 
 java -cp "%script_dir%hutool-all-5.8.28.jar;%script_dir%;." com.falseu.autoinstallproxy.AutoInstallProxy %1
-echo æ²¡é”™è¯¯å°±è¡¨ç¤ºå®Œæˆ,æŒ‰ä»»æ„é”®é€€å‡º
+echo Ã»´íÎó¾Í±íÊ¾Íê³É,°´ÈÎÒâ¼üÍË³ö
 pause>nul
