@@ -110,7 +110,8 @@ public class AutoInstallProxy {
                 "com",
                 "hutool-all-5.8.28.jar",
                 "ip-uuid.txt",
-                "start.bat"};
+                "start.bat",
+                "start.vbs"};
 
         File[] fileArr = Arrays.stream(fileNameArr)
                 .map(File::new)
