@@ -18,6 +18,8 @@ import java.util.UUID;
 
 public class AutoInstallProxy {
 
+    private final static String RELEASE_NAME = "v2ray-proxy-install.zip";
+
     public static void main(String[] args) {
 
         if (args.length == 2 && "release".equals(args[0])) {
@@ -64,7 +66,7 @@ public class AutoInstallProxy {
         ZipUtil.unzip(fileName, unZipFilePath);
         FileUtil.del(fileName);
 
-        FileUtil.move(FileUtil.file("./start-proxy.vbs"), FileUtil.file(unZipFilePath + "/start.vbs"), true);
+        FileUtil.copy(FileUtil.file("./start-proxy.vbs"), FileUtil.file(unZipFilePath + "/start.vbs"), true);
 
         String jsonFile = unZipFilePath + "/config.json";
         JSONObject jsonObject = JSONUtil.parseObj(configJson);
@@ -101,6 +103,7 @@ public class AutoInstallProxy {
         String startCmd = "%~dp0\\v2ray.exe run";
         FileUtil.writeString(startCmd, unZipFilePath + "/start.bat", "UTF-8");
 
+
     }
 
     /**
@@ -120,7 +123,7 @@ public class AutoInstallProxy {
                 .distinct()
                 .toArray(File[]::new);
 
-        ZipUtil.zip(new File(outPath + "/v2ray-proxy-install.zip"), true, fileArr);
+        ZipUtil.zip(new File(outPath + "/" + RELEASE_NAME), true, fileArr);
         FileUtil.del("com");
 
     }
