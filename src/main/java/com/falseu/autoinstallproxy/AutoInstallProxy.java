@@ -27,12 +27,12 @@ public class AutoInstallProxy {
         }
 
         String configJson = "{\"log\":{\"loglevel\":\"warning\"},\"inbounds\":[{\"port\":16823,\"protocol\":\"vmess\",\"settings\":{\"clients\":[{\"id\":\"c033ee75-1b3f-45a6-a473-8f28dbf4aa27\",\"alterId\":0}]}}],\"outbounds\":[{\"protocol\":\"freedom\",\"settings\":{}}]}";
-        
+
         // 下载zip
         // 解压
         // 替换json
         String url = "https://mirror.ghproxy.com/https://github.com/v2fly/v2ray-core/releases/download/v5.13.0/v2ray-windows-64.zip";
-        if (args.length == 1 && args[0].startsWith("https://")){
+        if (args.length == 1 && args[0].startsWith("https://")) {
             url = args[0];
         }
 
@@ -63,6 +63,8 @@ public class AutoInstallProxy {
 
         ZipUtil.unzip(fileName, unZipFilePath);
         FileUtil.del(fileName);
+
+        FileUtil.move(FileUtil.file("./start-proxy.vbs"), FileUtil.file(unZipFilePath + "/start.vbs"), true);
 
         String jsonFile = unZipFilePath + "/config.json";
         JSONObject jsonObject = JSONUtil.parseObj(configJson);
@@ -111,7 +113,7 @@ public class AutoInstallProxy {
                 "hutool-all-5.8.28.jar",
                 "ip-uuid.txt",
                 "start.bat",
-                "start.vbs"};
+                "start-proxy.vbs"};
 
         File[] fileArr = Arrays.stream(fileNameArr)
                 .map(File::new)
