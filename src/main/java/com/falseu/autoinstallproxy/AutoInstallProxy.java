@@ -4,6 +4,7 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.StreamProgress;
 import cn.hutool.core.io.file.FileNameUtil;
 import cn.hutool.core.net.NetUtil;
+import cn.hutool.core.swing.DesktopUtil;
 import cn.hutool.core.util.ZipUtil;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONArray;
@@ -103,6 +104,7 @@ public class AutoInstallProxy {
         String startCmd = "%~dp0\\v2ray.exe run";
         FileUtil.writeString(startCmd, unZipFilePath + "/start.bat", "UTF-8");
 
+        DesktopUtil.open(FileUtil.file(unZipFilePath));
 
     }
 
